@@ -8,7 +8,7 @@ This tutorial assumes the the user has a basic understanding of GitHub's online 
 ### Naming convention and GitHub Pages
 GitHub provides a static website hosting service, called GitHub Pages, which is potentially available for every repository a user might create on their website. The website will draw from one of the repo's branches, but the options available to choose from for the available branches is determined by the type of repo that has been created. 
 
-For any individual account repository that follows the naming convention `[username].github.io`, GitHub will generate a website at `https://[username].github.io`. This type of site is called a "User Pages site," the website will generate automatically, and it will (at the moment) only allow a user to make the "master" branch the collection of files used to generate the website.
+For any individual account repository that follows the naming convention \[username].github.io, GitHub will generate a website at https://\[username].github.io. This type of site is called a "User Pages site," the website will generate automatically, and it will (at the moment) only allow a user to make the "master" branch the collection of files used to generate the website.
 
 An organizational account repository that follows the convention `[organization].github.io` will similarly automatically generate a website at `https://[organization].github.io` and only allow reliance on the "master" branch. This type of site is called an "Organization Pages site."
 
@@ -23,6 +23,8 @@ After providing the desired repository name, there are several more options rela
 Many people find using multiple branches for a repository particularly helpful, especially with keeping unintentional material from being public on one's website. But, for those of us who are building a Jekyll site that may not get much traffic, it would probably be easier to maintain just one repo branch - the "master" branch - and have that one selected as the source for the repo's GitHub Pages website. To generate a website on a project repo, simply navigate to the repo's Settings tab, scroll down to the GitHub Pages section, choose the "master branch" source for the website, and click "Save." Here you can see that "gh-pages" would be another acceptable source - if such a branch exists in the repo - as well as a folder within the "master" branch called "docs." If one would prefer to maintain two branches in the repo, then creating a "gh-pages" branch will automatically generate the website because GitHub's system automatically recognizes this specific branch name as the source of a desired website. A user can, at any time after creating the "gh-pages" branch, change the source setting to either "master" or "docs."
 
 ## Website Front Page
+**Note:** From this point onward, I will refer to the reader's username as \[username] and anyone following this tutorial while building a site in an organizational repository should substitute the organization name (\[organization] above) for the username.
+
 ### index.html
 Create a file named index.html and paste the following code into its body:
 
@@ -49,14 +51,14 @@ Create a file named index.html and paste the following code into its body:
 		</div><!-- /.container -->
 		<footer>
     		<ul>
-        		<li><a href="https://github.com/[USERNAME]">github.com/[USERNAME]</a></li>
+        		<li><a href="https://github.com/[username]">github.com/[username]</a></li>
 			</ul>
 		</footer>
 	</body>
 </html>
 ```
 
-Change the `[WEBSITE TITLE]` part to whatever you'd like, and replace both instances of `[USERNAME]` with your own GitHub username.
+Change the `[WEBSITE TITLE]` part to whatever you'd like, and replace both instances of `[username]` with your own GitHub username. If you follow this guide and notice that the link to "Home" isn't working, please see ["Project Pages site," Liquid tag {{ site.baseurl }}, and Liquid filter {{ "" | relative_url }}](##"Project Pages site," Liquid tag {{ site.baseurl }}, and Liquid filter {{ "" | relative_url }}) below for a detailed explanation.
 
 ### style.css
 The code above for the index.html file contains a referenced stylesheet. Create this file with the name `css/style.css`. **NOTE:** When a user types a file name and types `/` GitHub automatically detects the name as a directory and adjusts the interface to note that the next part of the name will be for the file, which will be created inside that directory.
@@ -129,7 +131,7 @@ This tells GitHub's system to ignore any changes that happen in the `_site/` dir
 Next, create a new file named `_config.yml` and in its body add the following:
 
 ```
-name: [Website Name]
+name: [WEBSITE NAME]
 markdown: kramdown
 ```
 
@@ -162,14 +164,14 @@ Create another new file in the repository and write its name as `_layouts/page.h
 			</div><!-- /.container -->
 			<footer>
 	    		<ul>
-	        		<li><a href="https://github.com/[USERNAME]">github.com/[USERNAME]</a></li>
+	        		<li><a href="https://github.com/[username]">github.com/[username]</a></li>
 				</ul>
 			</footer>
 		</body>
 	</html>
   ```
 
-If you notice, much of this is the same as what was pasted into the index.html file, specified above. Once again, replace both instances of `[USERNAME]` with your own GitHub username, but leave the rest alone for now. This layout will take care of the bulk of the HTML needed to write any given page in the website, so that all is needed in a page that refrences it is a little bit of content (which Jekyll will recognize and plug into a generated page at the location occupied by the `{{ content }}` [Liquid tag](https://jekyllrb.com/docs/templates/) in this defined layout).
+If you notice, much of this is the same as what was pasted into the index.html file, specified above. Once again, replace both instances of `[username]` with your own GitHub username, but leave the rest alone for now. This layout will take care of the bulk of the HTML needed to write any given page in the website, so that all is needed in a page that refrences it is a little bit of content (which Jekyll will recognize and plug into a generated page at the location occupied by the `{{ content }}` [Liquid tag](https://jekyllrb.com/docs/templates/) in this defined layout).
 
 ### index.html again
 Now, go back to `index.html`. Replace all of it with the following code:
@@ -189,6 +191,54 @@ In this code, the portion between the two `---` lines is [referred to as the "fr
 
 The portion of the code below the front matter is the previously-referenced content. It should be exactly the same as what was written before as the `<div class="blurb">` container.
 
-### creating a blog.html page
+### Creating a blog.html page
+
 As I wrote above, Jekyll is used quite extensively as a blog generator because of its ability to centralize webpage layouts and automatically generate lists of certain kinds of files as pages, as well as its ability to turn Markdown (.md) files into styled pages.
 
+----
+### \_layout/post.html
+```html
+---
+layout: page
+---
+<h1>{{ page.title }}</h1>
+<p class="meta">{{ page.date | date_to_string }}</p>
+
+<div class="post">
+	{{ content }}
+</div>
+```
+
+### \_posts/\[DATE]-\[ANYTHING].md
+```kramdown
+---
+layout: post
+title: [POST TITLE]
+date: [DATE(follow XXXX-XX-XX format, corresponding to YEAR-MONTH-DAY)]
+---
+This is an example blog post. I am terrible at writing blog posts, so this is pretty much as 'great' as it gets. Notice how this isn't written with HTML, but instead with Markdown (**more specifically**, _GitHub's Markdown_, which works with _kramdown_).
+```
+The date in the Front Matter and the date specified in the file name _must_ be the same for a Jekyll site to properly detect the post when creating a main blog overview page. The title specified in the Front Matter is what will generate the title used on the blog overview page, but the post name in the file name that follows the date can be whatever works best. The file itself is a Markdown file (hence the `.md`).
+
+## "Project Pages site," Liquid tag {{ site.baseurl }}, and Liquid filter {{ "" | relative_url }}
+At this point, a reader who is using this guide to build a simple "User (or Organization) Pages site" can view this test blog post at https://\[username].github.io/\[repository-name]/year/month/day/\[ANYTHING].html (e.x. `https://user.github.io/test-repository/2018/02/16/test.html` for a blog post with the file name `2018-02-16-test.md`). The Liquid tag and filter mentioned in this section's title aren't strictly needed because such a site has the most basic structure possible. 
+
+However, for readers making a "Project Pages site," the Liquid tag and filter will be crucial to keeping all your relative links within your code working. In fact, if you've been building a "Project Pages site" by following this guide and try to go to the url for the blog post this guide just directed you to create, you will immediately notice that the blog post isn't styled at all, because the browser doesn't have the proper path to the relevant .css file. Additionally, none of the menu links have worked properly up to this point. These Liquid tag and filter will fix this and will allow for greater flexibility in a site's structure.
+
+### \_layout/page.html revisited
+
+
+### blog/index.html
+```html
+---
+layout: page
+title: [EXCELLENT MAIN BLOG NAME]
+---
+<h1>{{ page.title }}</h1>
+<ul class="posts">
+
+	{% for post in site.posts %}
+	<li><span>{{ post.date | date_to_string }}</span> » <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
+	{% endfor %}
+</ul>
+```
