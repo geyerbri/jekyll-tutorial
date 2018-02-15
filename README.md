@@ -74,7 +74,7 @@ Next, create a file named index.html and paste the following code into its body:
 Change the `[WEBSITE TITLE]` part to whatever you'd like, and replace both instances of `[USERNAME]` with your own GitHub username.
 
 ### style.css
-The code above for the index.html file contains a referenced stylesheet. Create this file with the name `css/style.css`. **NOTE:** When a user types a file name and types `/` GitHub automatically detects the name as a directory and adjusts the interface to note that the next part of the name will be for the file.
+The code above for the index.html file contains a referenced stylesheet. Create this file with the name `css/style.css`. **NOTE:** When a user types a file name and types `/` GitHub automatically detects the name as a directory and adjusts the interface to note that the next part of the name will be for the file, which will be created inside that directory.
 
 Within the body of `style.css` paste this code:
 
