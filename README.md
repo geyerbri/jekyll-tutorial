@@ -130,7 +130,7 @@ For now, this css file will style the index.html page.
 
 
 
-
+## Other
 ### \_layouts/default.html
 Next, create another new file and write its name as `_layouts/default.html`, which will simultaneously create the `_layouts` directory and create within it the `default.html` file. In the body of this file, paste the following code:
 
