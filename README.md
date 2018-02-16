@@ -58,7 +58,7 @@ Create a file named `index.html` and paste the following code into its body:
 </html>
 ```
 
-Change the \[WEBSITE TITLE] part to whatever you'd like, and replace both instances of \[username] with your own GitHub username. If you follow this guide and notice that the link to "Home" isn't working, please see ["Project Pages site," Liquid tag {{ site.baseurl }}, and Liquid filter {{ "" | relative_url }}](#project-pages-site-liquid-tag-site.baseurl-and-liquid-filter-relative_url) below for a detailed explanation.
+Change the \[WEBSITE TITLE] part to whatever you'd like, and replace both instances of \[username] with your own GitHub username. If you follow this guide and notice that the link to "Home" isn't working, please see ["Project Pages site," Liquid tag {{ site.baseurl }}, and Liquid filter {{ "" | relative_url }}](#project-pages-site-liquid-tag--sitebaseurl--and-liquid-filter----relative_url-) below for a detailed explanation.
 
 ### style.css
 The code above for the index.html file contains a referenced stylesheet. Create this file with the name `css/style.css`. **NOTE:** When a user types a file name and types `/` GitHub automatically detects the name as a directory and adjusts the interface to note that the next part of the name will be for the file, which will be created inside that directory.
