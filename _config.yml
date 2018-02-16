@@ -1,5 +1,4 @@
 name: Brian's Example Jekyll Site
 markdown: kramdown
-permalink: /blog/:year/:month/:day/:title
-
 remote-theme: fongandrew/hydeout
+permalink: /blog/:year/:month/:day/:title
