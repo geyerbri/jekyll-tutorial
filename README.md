@@ -34,7 +34,7 @@ Create a file named `index.html` and paste the following code into its body:
 	<head>
 		<title>[PAGE TITLE]</title>
 		<!-- link to main stylesheet -->
-		<link rel="stylesheet" type="text/css" href="/css/style.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
 	<body>
 		<nav>
@@ -226,9 +226,46 @@ At this point, a reader who is using this guide to build a simple "User (or Orga
 However, for readers making a "Project Pages site," the Liquid tag and filter will be crucial to keeping all your relative links within your code working. In fact, if you've been building a "Project Pages site" by following this guide and try to go to the url for the blog post this guide just directed you to create, you will immediately notice that the blog post isn't styled at all, because the browser doesn't have the proper path to the relevant .css file. Additionally, none of the menu links have worked properly up to this point. These Liquid tag and filter will fix this and will allow for greater flexibility in a site's structure.
 
 ### \_layout/page.html revisited
+The `page.html` file will need to have its content adjusted to account for any website structure that isn't exactly what is generated for a "User Pages site." Please replace the file's content with this:
 
+```html
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{ page.title }}</title>
+		<!-- link to main stylesheet -->
+		<link rel="stylesheet" type="text/css" href={{ "css/style.css" | relative_url }}>
+	</head>
+	<body>
+		<nav>
+    		<ul>
+        		<li><a href="{{site.baseurl}}">Home</a></li>
+        		<li><a href={{ "blog" | relative_url }}>Blog</a></li>
+    		</ul>
+		</nav>
+		<div class="container">
+		
+		{{ content }}
+		
+		</div><!-- /.container -->
+		<footer>
+    		<ul>
+        		<li><a href="https://github.com/[username]">github.com/[username]</a></li>
+			</ul>
+		</footer>
+	</body>
+</html>
+```
+Notice the use of `{{ "" | relative_url }}` for both the path for the stylesheet as well as the link for "Blog" in the site's menu. Also notice that "Home" has a path of `{{site.baseurl}}`.
+
+For `{{site.baseurl}}`, this Liquid tag is telling Jekyll to provide the website's known address, which is either its defaulted value, or a value produced by entries in the website's `_config.yml` file. In the case of the default, GitHub Pages sets `site` to `https://[username].github.io` and `baseurl` to `[repository-name]`. Both `site` and `baseurl` can be overwritten in `_config.yml`, such as `site: https://example.com` and `basurl: new-value`. In such an example, using `{{ site.baseurl }}` would produce the value `https://example.com/new-value`. This is useful for those looking to set a custom domain name for the site hosted on GitHub.
+
+For `{{ "" | relative_url }}`, Jekyll will recognize this Liquid filter and prepend the value between the quotation marks with the defined `baseurl` value. For example, in the new code provided for page.html above, Jekyll will define the path for the stylesheet as `[repository-name]/css/style.css`, which will lead to the appropriate location for that file because the layout serves itself from the location `site`.
+
+As an aside, I have used both the Liquid tag and filter here to introduce both, but it would also be possible to rewrite each instance of their use to rely on the other, in this specific case. For instance, the "Home" path could be rewritten as `{{ "." | relative_url }}` or `{{ "/" | relative_url }}`, which would all produce the same functional result.
 
 ### blog/index.html
+Using the knowledge above about where Jekyll positions files in folder that begin with `_`, it becomes possible to adjust code from McGlone's tutorial to work on a "Project Pages site". Create a new file, `blog/index.html` and paste this code into the file:
 ```html
 ---
 layout: page
@@ -236,9 +273,53 @@ title: [EXCELLENT MAIN BLOG NAME]
 ---
 <h1>{{ page.title }}</h1>
 <ul class="posts">
-
 	{% for post in site.posts %}
-	<li><span>{{ post.date | date_to_string }}</span> » <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
+	<li><span>{{ post.date | date_to_string }}</span> » <a href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
 	{% endfor %}
 </ul>
 ```
+This code creates a new variable `post` and tells Jekyll that every entry inside the `posts` folder at the `site` location is a `post` value. This will serve up any file found inside `_posts` and create a list out of them. Then, it produces a list of links, which have all of their values defined by the file names and front matter. Using `{{ site.baseurl }}` will amend the post's path with the appropriate URL, so that this code will work in cases other than the most basic "User Pages sites" instances.
+
+Creating this file as `index.html` inside of the directory `blog` creates a cleaner-looking URL for its page (as opposed to, say, `https://[username].github.io/[repository-name]/blog.html`), which also segues nicely into an explanation of how to redefine the directory that each post appears to exist within in their URL.
+
+## Customize Blog Post URLs
+Jekyll also allows a user to define a directory in which posts appear to reside when looking at their URL. This is done via the `permalink` variable in the repository's `_config.yml` file. Edit this file, and add this line:
+
+```
+permalink: /blog/:year/:month/:day/:title
+```
+Setting this value will make post URLs appear to reside within the `blog` directory, as well as subdirectories defined by the post's year, month, and day, as they are defined in the post's front matter and file name (remember from this guide's [\_posts/\[DATE\]-\[ANYTHING\].md](#_postsdate-anythingmd) section, these are all supposed to match). Finally, the page will take its title from the post's file name (which I wrote as \[ANYTHING] above).
+
+## Themes
+GitHub Pages provides a number of ready-to-use themes, all of which can be implemented by navigating to the repository's Settings tab, scrolling down to the GitHub Pages section, clicking on "Choose a theme," clicking on the desired theme's thumbnail, and clicking "Select theme." You can confirm that the theme is active by checking for the `theme` variable in your repo's `_config.yml` file.
+
+### \_layouts/page.html revisited again
+After enabling a theme, it will be important to again rewrite portions of the "page" theme. Edit the `_layouts/page.html` file and replace its contents with the following code:
+```html
+---
+layout: default
+---
+<head>
+	<!--<link rel="stylesheet" type="text/css" href={{ "css/style.css" | relative_url }}>-->
+</head>
+<nav>
+	<ul>
+		<li><a href={{ "." | relative_url }}>Home</a></li>
+		<li><a href={{ "blog" | relative_url }}>Blog</a></li>
+	</ul>
+</nav>
+<div class="container">
+
+	{{ content }}
+
+</div><!-- /.container -->
+<footer>
+	<ul>
+		<li><a href="https://github.com/geyerbri">github.com/geyerbri</a></li>
+	</ul>
+</footer>
+```
+
+
+
+However, these themes 
