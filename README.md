@@ -294,7 +294,7 @@ Setting this value will make post URLs appear to reside within the `blog` direct
 GitHub Pages provides a number of ready-to-use themes, all of which can be implemented by navigating to the repository's Settings tab, scrolling down to the GitHub Pages section, clicking on "Choose a theme," clicking on the desired theme's thumbnail, and clicking "Select theme." You can confirm that the theme is active by checking for the `theme` variable in your repo's `_config.yml` file.
 
 ### \_layouts/page.html revisited again
-After enabling a theme, it will be important to again rewrite portions of the "page" theme. Edit the `_layouts/page.html` file and replace its contents with the following code:
+After enabling a theme, it will be important to again rewrite portions of the "page" layout. Edit the `_layouts/page.html` file and replace its contents with the following code:
 ```html
 ---
 layout: default
@@ -315,11 +315,33 @@ layout: default
 </div><!-- /.container -->
 <footer>
 	<ul>
-		<li><a href="https://github.com/geyerbri">github.com/geyerbri</a></li>
+		<li><a href="https://github.com/[username]">github.com/[username]</a></li>
 	</ul>
 </footer>
 ```
+By pointing this layout to the "default" layout, Jekyll will implement the GitHub Pages theme's "default" layout site-wide. Additionally, much of the previous code is unnecesary, so I have removed it. I have also commented out the stylesheet, because its current code would override the styling done by the theme. 
 
+### css/style.css revisited
+If you would like to continue using the stylesheet to style each page's `<nav>` and `<footer>` containers, you could simply remove the surrounding comment in this file, then alter `css/style.css` to have only code related to `nav ul`, `footer ul`, `nav ul li`, and `footer ul li`. To do this quickly, just replace all of that file with:
+```css
+nav ul, footer ul {
+    padding: 0px;
+    list-style: none;
+    font-weight: bold;
+}
+nav ul li, footer ul li {
+    display: inline;
+    margin-right: 20px;
+}
+```
+## GitHub user-created themes
+Many people find the easily-deployable themes provided by GitHub Pages to be undesirable. There are countless other themes available for use on GitHub, produced by other users. To utilize one of these themes, first locate one on github.com and take note of the user's name (\[theme-username]) and repository name (\[theme-repository]).
 
+### Remote-theme variable
+Edit your repository's `_config.yml` file and delete any theme variable and its defined value that might exist there. Next, add
+```
+remote-theme:
+```
+Set the value of `remote-theme` to the following format: \[theme-username]/\[theme-repository].
 
-However, these themes 
+Finally, if you would like even more control over a given remote theme, feel free to fork its repository, make any changes you'd like, then direct your Jekyll site to it by defining the remote theme as the one you control: \[username]/\[forked-theme-repository].
