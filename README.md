@@ -341,8 +341,8 @@ Many people find the easily-deployable themes provided by GitHub Pages to be und
 ### Remote-theme variable
 Edit your repository's `_config.yml` file and delete any theme variable and its defined value that might exist there. Next, add
 ```
-remote-theme:
+remote_theme:
 ```
-Set the value of `remote-theme` to the following format: \[theme-username]/\[theme-repository].
+Set the value of `remote_theme` to the following format: \[theme-username]/\[theme-repository].
 
 Finally, if you would like even more control over a given remote theme, feel free to fork its repository, make any changes you'd like, then direct your Jekyll site to it by defining the remote theme as the one you control: \[username]/\[forked-theme-repository].
