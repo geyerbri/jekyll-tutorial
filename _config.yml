@@ -1,3 +1,5 @@
 name: Brian's Example Jekyll Site
 markdown: kramdown
 permalink: /blog/:year/:month/:day/:title
+
+theme: jekyll-theme-time-machine
