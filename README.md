@@ -187,16 +187,16 @@ title: [PAGE TITLE]
 </div><!-- /.blurb -->
 ```
 
-In this code, the portion between the two `---` lines is [referred to as the "front matter"](https://jekyllrb.com/docs/frontmatter/) and is where a user can specify all sorts of variables and values. Each page should have a at least a defined layout, and often will includ a defined title as well (as this one does), but can contain any number of other variables that relate to one's designed Jekyll layout or chosen theme (see below).
+In this code, the portion between the two `---` lines is [referred to as the "Front Matter"](https://jekyllrb.com/docs/frontmatter/) and is where a user can specify all sorts of variables and values. Each page should have a at least a defined layout, and often will includ a defined title as well (as this one does), but can contain any number of other variables that relate to one's designed Jekyll layout or chosen theme (see below).
 
-The portion of the code below the front matter is the previously-referenced content. It should be exactly the same as what was written before as the `<div class="blurb">` container.
+The portion of the code below the Front Matter is the previously-referenced content. It should be exactly the same as what was written before as the `<div class="blurb">` container.
 
 ### Creating a blog.html page
 
 As I wrote above, Jekyll is used quite extensively as a blog generator because of its ability to centralize webpage layouts and automatically generate lists of certain kinds of files as pages, as well as its ability to turn Markdown (.md) files into styled pages.
 
-----
 ### \_layout/post.html
+The first step here is to create a "post" layout, which relies on the "page" layout. Create a new file in the `_layout` directory, name it `post.html`, and paste in the following code:
 ```html
 ---
 layout: page
@@ -210,6 +210,7 @@ layout: page
 ```
 
 ### \_posts/\[DATE]-\[ANYTHING].md
+Now that the "post" layout exists, it is possible to create a post that relies on the layout for its styling. Each post file must be named as \[YEAR]-\[MONTH]-\[DAY]-\[ANYTHING].md, with \[ANYTHING] being a string of words separated by dashes (`-`). For an example, you could use `2018-02-16-introductory-post.md`. Then for its content, paste in the following:
 ```kramdown
 ---
 layout: post
@@ -218,9 +219,9 @@ date: [DATE(follow XXXX-XX-XX format, corresponding to YEAR-MONTH-DAY)]
 ---
 This is an example blog post. I am terrible at writing blog posts, so this is pretty much as 'great' as it gets. Notice how this isn't written with HTML, but instead with Markdown (**more specifically**, _GitHub's Markdown_, which works with _kramdown_).
 ```
-The date in the Front Matter and the date specified in the file name _must_ be the same for a Jekyll site to properly detect the post when creating a main blog overview page. The title specified in the Front Matter is what will generate the title used on the blog overview page, but the post name in the file name that follows the date can be whatever works best. The file itself is a Markdown file (hence the `.md`).
+The date in the Front Matter and the date specified in the file name _must_ be the same for a Jekyll site to properly detect the post when creating a main blog overview page. The title specified in the Front Matter is what will generate the title used on the blog overview page. Finally, notice that the file itself is a Markdown file (hence the `.md`) and uses Markdown styling for its text.
 
-## "Project Pages site," Liquid tag {{ site.baseurl }}, and Liquid filter {{ "" | relative_url }}
+## "Project Pages site," the Liquid tag {{ site.baseurl }}, and the Liquid filter {{ "" | relative_url }}
 At this point, a reader who is using this guide to build a simple "User (or Organization) Pages site" can view this test blog post at https://\[username].github.io/\[repository-name]/year/month/day/\[ANYTHING].html (e.x. `https://user.github.io/test-repository/2018/02/16/test.html` for a blog post with the file name `2018-02-16-test.md`). The Liquid tag and filter mentioned in this section's title aren't strictly needed because such a site has the most basic structure possible. 
 
 However, for readers making a "Project Pages site," the Liquid tag and filter will be crucial to keeping all your relative links within your code working. In fact, if you've been building a "Project Pages site" by following this guide and try to go to the url for the blog post this guide just directed you to create, you will immediately notice that the blog post isn't styled at all, because the browser doesn't have the proper path to the relevant .css file. Additionally, none of the menu links have worked properly up to this point. These Liquid tag and filter will fix this and will allow for greater flexibility in a site's structure.
@@ -278,7 +279,7 @@ title: [EXCELLENT MAIN BLOG NAME]
 	{% endfor %}
 </ul>
 ```
-This code creates a new variable `post` and tells Jekyll that every entry inside the `posts` folder at the `site` location is a `post` value. This will serve up any file found inside `_posts` and create a list out of them. Then, it produces a list of links, which have all of their values defined by the file names and front matter. Using `{{ site.baseurl }}` will amend the post's path with the appropriate URL, so that this code will work in cases other than the most basic "User Pages sites" instances.
+This code creates a new variable `post` and tells Jekyll that every entry inside the `posts` folder at the `site` location is a `post` value. This will serve up any file found inside `_posts` and create a list out of them. Then, it produces a list of links, which have all of their values defined by the file names and Front Matter. Using `{{ site.baseurl }}` will amend the post's path with the appropriate URL, so that this code will work in cases other than the most basic "User Pages sites" instances.
 
 Creating this file as `index.html` inside of the directory `blog` creates a cleaner-looking URL for its page (as opposed to, say, `https://[username].github.io/[repository-name]/blog.html`), which also segues nicely into an explanation of how to redefine the directory that each post appears to exist within in their URL.
 
@@ -288,7 +289,7 @@ Jekyll also allows a user to define a directory in which posts appear to reside 
 ```
 permalink: /blog/:year/:month/:day/:title
 ```
-Setting this value will make post URLs appear to reside within the `blog` directory, as well as subdirectories defined by the post's year, month, and day, as they are defined in the post's front matter and file name (remember from this guide's [\_posts/\[DATE\]-\[ANYTHING\].md](#_postsdate-anythingmd) section, these are all supposed to match). Finally, the page will take its title from the post's file name (which I wrote as \[ANYTHING] above).
+Setting this value will make post URLs appear to reside within the `blog` directory, as well as subdirectories defined by the post's year, month, and day, as they are defined in the post's Front Matter and file name (remember from this guide's [\_posts/\[DATE\]-\[ANYTHING\].md](#_postsdate-anythingmd) section, these are all supposed to match). Finally, the page will take its title from the post's file name (which I wrote as \[ANYTHING] above).
 
 ## Themes
 GitHub Pages provides a number of ready-to-use themes, all of which can be implemented by navigating to the repository's Settings tab, scrolling down to the GitHub Pages section, clicking on "Choose a theme," clicking on the desired theme's thumbnail, and clicking "Select theme." You can confirm that the theme is active by checking for the `theme` variable in your repo's `_config.yml` file.
