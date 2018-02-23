@@ -2,3 +2,4 @@ title: Brian's Example Jekyll Site
 markdown: kramdown
 permalink: /blog/:year/:month/:day/:title
 remote_theme: fongandrew/hydeout
+sidebar_home_link: true
