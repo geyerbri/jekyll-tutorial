@@ -1,5 +1,6 @@
-{% when "staticman_v2" %}
+{% if page.comments != false %}
       <section id="static-comments">
+		  <h2>Comments</h2>
         {% if site.repository and site.staticman.branch %}
           <!-- Start static comments -->
           <div class="js-comments">
@@ -70,3 +71,4 @@
           {% if site.reCaptcha.siteKey %}<script async src="https://www.google.com/recaptcha/api.js"></script>{% endif %}
         {% endif %}
       </section>
+{% endif %}
