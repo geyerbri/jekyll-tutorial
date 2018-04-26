@@ -1,6 +1,7 @@
 {% if page.comments != false %}
       <section id="static-comments">
-		  <h2>Comments2</h2>
+		  <h2>Comments3</h2>
+        {% if site.repository and site.staticman.branch %}
           <!-- Start static comments -->
           <div class="js-comments">
             {% if site.data.comments[page.slug] %}
@@ -68,5 +69,6 @@
           </div>
           <!-- End new comment form -->
           {% if site.reCaptcha.siteKey %}<script async src="https://www.google.com/recaptcha/api.js"></script>{% endif %}
+        {% endif %}
       </section>
 {% endif %}
