@@ -25,13 +25,13 @@ This tutorial assumes the the user has a basic understanding of GitHub's online 
 * [\_posts/\[DATE\]-\[ANYTHING\].md](#_postsdate-anythingmd)
 
 ["Project Pages site," Liquid tag {{ site.baseurl }}, and Liquid filter {{ "" | relative_url }}](#project-pages-site-the-liquid-tag--sitebaseurl--and-the-liquid-filter----relative_url-)
-* [\_layout/page.html revisited: Liquid tags and Liquid filters](*_layoutpagehtml-revisited-liquid-tags-and-liquid-filters)
+* [\_layouts/page.html revisited: Liquid tags and Liquid filters](#_layoutspagehtml-revisited-liquid-tags-and-liquid-filters)
 * [blog/index.html](#blogindexhtml)
 
 [Customize Blog Post URLs](#customize-blog-post-urls)
 
 [Themes](#themes)
-* [\_layouts/page.html revisited again](#_layoutpagehtml-revisited-again)
+* [\_layouts/page.html revisited again](#_layoutspagehtml-revisited-again)
 * [css/style.css revisited](#cssstylecss-revisited)
 
 [GitHub user-created themes](#github-user-created-themes)
@@ -262,7 +262,7 @@ At this point, a reader who is using this guide to build a simple "User (or Orga
 
 However, for readers making a "Project Pages site," the Liquid tag and Liquid filter will be crucial to keeping all your relative links within your code working. In fact, if you've been building a "Project Pages site" by following this guide and try to go to the url for the blog post this guide just directed you to create, you will immediately notice that the blog post isn't styled at all, because the browser doesn't have the proper path to the relevant .css file. Additionally, none of the menu links have worked properly up to this point. The Liquid tag and Liquid filter will fix this and will allow for greater flexibility in a site's structure.
 
-### \_layout/page.html revisited: Liquid tags and Liquid filters
+### \_layouts/page.html revisited: Liquid tags and Liquid filters
 The `page.html` file will need to have its content adjusted to account for any website structure that isn't exactly what is generated for a "User Pages site." To account for the more complex structure, please replace the file's content with this:
 
 ```html
