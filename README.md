@@ -7,25 +7,33 @@ This tutorial assumes the the user has a basic understanding of GitHub's online 
 [Creating and naming the repository](#creating-and-naming-the-repository)
 * [URL conventions, branch options, and GitHub Pages](#url-conventions-branch-options-and-github-pages)
 * [Repository creation options](#repository-creation-options)
+
 [Managing branches](#managing-branches)
+
 [Website Front Page](#website-front-page)
 * [index.html](#indexhtml)
 * [css/style.css](#cssstylecss)
+
 [Getting started with a GitHub-based Jekyll website](#getting-started-with-a-github-based-jekyll-website)
 * [.gitignore](#gitignore)
 * [\_config.yml](#_configyml)
 * [\_layouts/page.html](#_layoutspagehtml)
 * [index.html again](#indexhtml-again)
+
 [Creating a blog.html page](#creating-a-bloghtml-page)
 * [\_layout/post.html](#_layoutposthtml)
 * [\_posts/\[DATE\]-\[ANYTHING\].md](#_postsdate-anythingmd)
+
 ["Project Pages site," Liquid tag {{ site.baseurl }}, and Liquid filter {{ "" | relative_url }}](#project-pages-site-the-liquid-tag--sitebaseurl--and-the-liquid-filter----relative_url-)
 * [\_layout/page.html revisited: Liquid tags and Liquid filters](*_layoutpagehtml-revisited-liquid-tags-and-liquid-filters)
 * [blog/index.html](#blogindexhtml)
+
 [Customize Blog Post URLs](#customize-blog-post-urls)
+
 [Themes](#themes)
 * [\_layouts/page.html revisited again](#_layoutpagehtml-revisited-again)
 * [css/style.css revisited]
+
 [GitHub user-created themes](#github-user-created-themes)
 * [Remote-theme variable](#remote-theme-variable)
 
