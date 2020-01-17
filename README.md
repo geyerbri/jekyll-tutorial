@@ -14,6 +14,13 @@ This tutorial assumes the the user has a basic understanding of GitHub's online 
 [Getting started with a GitHub-based Jekyll website](#getting-started-with-a-github-based-jekyll-website)
 * [.gitignore](#gitignore)
 * [\_config.yml](#_configyml)
+* [\_layouts/page.html](#_layoutspagehtml)
+* [index.html again](#indexhtml-again)
+[Creating a blog.html page](#creating-a-bloghtml-page)
+* [\_layout/post.html](#_layoutposthtml)
+* [\_posts/\[DATE\]-\[ANYTHING\].md](#_postdate-anythingmd)
+
+
 
 ## Creating and naming the repository
 
@@ -152,7 +159,7 @@ I'll be honest, I do not fully understand why the specific type of markdown - kn
 ### \_layouts/page.html
 As I previously wrote, Jekyll allows a user to create centralized layouts for each type of page within a website. Many tutorials direct readers to create an initial layout named `default.html`, but such a named layout is likely to interfere with some theme chosen in the future, so instead I am directing my readers to use a different initial layout name.
 
-Create another new file in the repository and write its name as `_layouts/page.html` to create the `page.html` file inside the `_layouts` directory. In the body of this file, paste the following code:
+Create another new file in the repository and write its name as `_layouts/page.html` to create the `page.html` file inside a new `_layouts` directory. In the body of this file, paste the following code:
 
 ```html
 <!DOCTYPE html>
@@ -183,7 +190,7 @@ Create another new file in the repository and write its name as `_layouts/page.h
 	</html>
   ```
 
-If you notice, much of this is the same as what was pasted into the index.html file, specified above. Once again, replace both instances of \[username] with your own GitHub username, but leave the rest alone for now. This layout will take care of the bulk of the HTML needed to write any given page in the website, so that all is needed in a page that refrences it is a little bit of content (which Jekyll will recognize and plug into a generated page at the location occupied by the `{{ content }}` [Liquid tag](https://jekyllrb.com/docs/templates/) in this defined layout).
+If you notice, much of this is the same as what was pasted into the index.html file, specified above. Once again, replace both instances of \[username] with your own GitHub username, but leave the rest alone for now. This layout will take care of the bulk of the HTML needed to write any given page in the website, so that all is needed in a page that refrences this layout is a little bit of content (which Jekyll will recognize and plug into a generated page at the location occupied by the `{{ content }}` [Liquid tag](https://jekyllrb.com/docs/templates/) in this defined layout).
 
 ### index.html again
 Now, go back to `index.html`. Replace all of it with the following code:
@@ -203,9 +210,9 @@ In this code, the portion between the two `---` lines is [referred to as the "Fr
 
 The portion of the code below the Front Matter is the previously-referenced content. It should be exactly the same as what was written before as the `<div class="blurb">` container.
 
-### Creating a blog.html page
+## Creating a blog.html page
 
-As I wrote above, Jekyll is used quite extensively as a blog generator because of its ability to centralize webpage layouts and automatically generate lists of certain kinds of files as pages, as well as its ability to turn Markdown (.md) files into styled pages.
+As I wrote above, Jekyll is used quite extensively as a blog generator because of its ability to centralize webpage layouts and automatically generate lists of certain kinds of files as pages, as well as its ability to turn Markdown (.md) files into styled pages. It does this all for a static site.
 
 ### \_layout/post.html
 The first step here is to create a "post" layout, which relies on the "page" layout. Create a new file in the `_layout` directory, name it `post.html`, and paste in the following code:
@@ -222,7 +229,7 @@ layout: page
 ```
 
 ### \_posts/\[DATE]-\[ANYTHING].md
-Now that the "post" layout exists, it is possible to create a post that relies on the layout for its styling. Each post file must be named as \[YEAR]-\[MONTH]-\[DAY]-\[ANYTHING].md, with \[ANYTHING] being a string of words separated by dashes (`-`). For an example, you could use `2018-02-16-introductory-post.md`. Then for its content, paste in the following:
+Now that the "post" layout exists, it is possible to create a post that relies on the layout for its styling. Each post file must be named as \[YEAR]-\[MONTH]-\[DAY]-\[ANYTHING].md, with \[ANYTHING] being a string of words separated by dashes (`-`). For an example, you could use `2020-01-24-introductory-post.md`. Then for its content, paste in the following:
 ```kramdown
 ---
 layout: post
