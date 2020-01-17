@@ -5,7 +5,15 @@ This tutorial assumes the the user has a basic understanding of GitHub's online 
 
 ## Tutorial Table of Contents
 [Creating and naming the repository](#creating-and-naming-the-repository)
-* [URL conventions, branch options, and GitHub Pages](#)
+* [URL conventions, branch options, and GitHub Pages](#url-conventions-branch-options-and-github-pages)
+* [Repository creation options](#repository-creation-options)
+[Managing branches](#managing-branches)
+[Website Front Page](#website-front-page)
+* [index.html](#index.html)
+* [style.css](#style.css)
+[Getting started with a GitHub-based Jekyll website](#getting-started-with-a-github-based-jekyll-website)
+* [.gitignore](#gitignore)
+* [\_config.yml](#_config.yml)
 
 ## Creating and naming the repository
 
@@ -62,10 +70,10 @@ Create a file named `index.html` and paste the following code into its body:
 </html>
 ```
 
-Change the \[WEBSITE TITLE] part to whatever you'd like, and replace both instances of \[username] with your own GitHub username. If you follow this guide and notice that the link to "Home" isn't working, please see ["Project Pages site," Liquid tag {{ site.baseurl }}, and Liquid filter {{ "" | relative_url }}](#project-pages-site-liquid-tag--sitebaseurl--and-liquid-filter----relative_url-) below for a detailed explanation.
+Change the \[PAGE TITLE] part to whatever you'd like, and replace both instances of \[username] with your own GitHub username. If you follow this guide and notice that the link to "Home" isn't working, please see ["Project Pages site," Liquid tag {{ site.baseurl }}, and Liquid filter {{ "" | relative_url }}](#project-pages-site-liquid-tag--sitebaseurl--and-liquid-filter----relative_url-) below for a detailed explanation.
 
 ### style.css
-The code above for the index.html file contains a referenced stylesheet. Create this file with the name `css/style.css`. **NOTE:** When a user types a file name and types `/` GitHub automatically detects the name as a directory and adjusts the interface to note that the next part of the name will be for the file, which will be created inside that directory.
+The code above for the index.html file contains a referenced stylesheet. Create this file with the name `css/style.css`. **NOTE:** When a user types a file name and types `/` GitHub automatically detects the name as a directory and adjusts the interface to note that the next part of the name will be for the file, which will be created inside a directory with the just-provided name.
 
 Within the body of `style.css` paste this code:
 
@@ -139,7 +147,7 @@ name: [WEBSITE NAME]
 markdown: kramdown
 ```
 
-I'll be honest, I do not fully understand why the specific type of markdown - known as kramdown - needs to be specified here, but this is something McGlone includes [in his guide](http://jmcglone.com/guides/github-pages/), so I am including it in mine. kramdown is an MIT-designed version of markdown that GitHub Pages accepts, but their kowledge base explains that [GitHub's markdown is supported by kramdown](https://help.github.com/articles/updating-your-markdown-processor-to-kramdown/), so it is entirely possible that including this designation here is circular. Who knows.
+I'll be honest, I do not fully understand why the specific type of markdown - known as kramdown - needs to be specified here, but this is something McGlone includes [in his guide](http://jmcglone.com/guides/github-pages/), so I am including it in mine. kramdown is an MIT-designed version of markdown that GitHub Pages accepts, but their kowledge base explains that [GitHub's markdown is supported by kramdown](https://help.github.com/articles/updating-your-markdown-processor-to-kramdown/), so it is entirely possible that including this designation here is circular. ¯\_(ツ)_/¯
 
 ### \_layouts/page.html
 As I previously wrote, Jekyll allows a user to create centralized layouts for each type of page within a website. Many tutorials direct readers to create an initial layout named `default.html`, but such a named layout is likely to interfere with some theme chosen in the future, so instead I am directing my readers to use a different initial layout name.
