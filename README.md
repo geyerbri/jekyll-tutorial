@@ -9,8 +9,8 @@ This tutorial assumes the the user has a basic understanding of GitHub's online 
 * [Repository creation options](#repository-creation-options)
 [Managing branches](#managing-branches)
 [Website Front Page](#website-front-page)
-* [index.html](#index.html)
-* [style.css](#style.css)
+* [index.html](#indexhtml)
+* [css/style.css](#cssstylecss)
 [Getting started with a GitHub-based Jekyll website](#getting-started-with-a-github-based-jekyll-website)
 * [.gitignore](#gitignore)
 * [\_config.yml](#_configyml)
@@ -19,6 +19,15 @@ This tutorial assumes the the user has a basic understanding of GitHub's online 
 [Creating a blog.html page](#creating-a-bloghtml-page)
 * [\_layout/post.html](#_layoutposthtml)
 * [\_posts/\[DATE\]-\[ANYTHING\].md](#_postsdate-anythingmd)
+["Project Pages site," Liquid tag {{ site.baseurl }}, and Liquid filter {{ "" | relative_url }}](#project-pages-site-the-liquid-tag--sitebaseurl--and-the-liquid-filter----relative_url-)
+* [\_layout/page.html revisited: Liquid tags and Liquid filters](*_layoutpagehtml-revisited-liquid-tags-and-liquid-filters)
+* [blog/index.html](#blogindexhtml)
+[Customize Blog Post URLs](#customize-blog-post-urls)
+[Themes](#themes)
+* [\_layouts/page.html revisited again](#_layoutpagehtml-revisited-again)
+* [css/style.css revisited]
+[GitHub user-created themes](#github-user-created-themes)
+* [Remote-theme variable](#remote-theme-variable)
 
 
 
@@ -77,9 +86,9 @@ Create a file named `index.html` and paste the following code into its body:
 </html>
 ```
 
-Change the \[PAGE TITLE] part to whatever you'd like, and replace both instances of \[username] with your own GitHub username. If you follow this guide and notice that the link to "Home" isn't working, please see ["Project Pages site," Liquid tag {{ site.baseurl }}, and Liquid filter {{ "" | relative_url }}](#project-pages-site-liquid-tag--sitebaseurl--and-liquid-filter----relative_url-) below for a detailed explanation.
+Change the \[PAGE TITLE] part to whatever you'd like, and replace both instances of \[username] with your own GitHub username. If you follow this guide and notice that the link to "Home" isn't working, please see ["Project Pages site," Liquid tag {{ site.baseurl }}, and Liquid filter {{ "" | relative_url }}](#project-pages-site-the-liquid-tag--sitebaseurl--and-the-liquid-filter----relative_url-) below for a detailed explanation.
 
-### style.css
+### css/style.css
 The code above for the index.html file contains a referenced stylesheet. Create this file with the name `css/style.css`. **NOTE:** When a user types a file name and types `/` GitHub automatically detects the name as a directory and adjusts the interface to note that the next part of the name will be for the file, which will be created inside a directory with the just-provided name.
 
 Within the body of `style.css` paste this code:
@@ -241,12 +250,12 @@ This is an example blog post. I am terrible at writing blog posts, so this is pr
 The date in the Front Matter and the date specified in the file name _must_ be the same for a Jekyll site to properly detect the post when creating a main blog overview page. The title specified in the Front Matter is what will generate the title used on the blog overview page. Finally, notice that the file itself is a Markdown file (hence the `.md`) and uses Markdown styling for its text.
 
 ## "Project Pages site," the Liquid tag {{ site.baseurl }}, and the Liquid filter {{ "" | relative_url }}
-At this point, a reader who is using this guide to build a simple "User (or Organization) Pages site" can view this test blog post at https://\[username].github.io/\[repository-name]/year/month/day/\[ANYTHING].html (e.x. `https://user.github.io/test-repository/2018/02/16/test.html` for a blog post with the file name `2018-02-16-test.md`). The Liquid tag and filter mentioned in this section's title aren't strictly needed because such a site has the most basic structure possible. 
+At this point, a reader who is using this guide to build a simple "User (or Organization) Pages site" can view this test blog post at https://\[username].github.io/\[repository-name]/year/month/day/\[ANYTHING].html (e.x. `https://\[username].github.io/test-repository/2020/01/24/introductory-post.html` for a blog post with the file name `2020-01-24-test.md`). The Liquid tag and filter mentioned in this section's title aren't strictly needed because such a site has the most basic URL structure possible. 
 
-However, for readers making a "Project Pages site," the Liquid tag and filter will be crucial to keeping all your relative links within your code working. In fact, if you've been building a "Project Pages site" by following this guide and try to go to the url for the blog post this guide just directed you to create, you will immediately notice that the blog post isn't styled at all, because the browser doesn't have the proper path to the relevant .css file. Additionally, none of the menu links have worked properly up to this point. These Liquid tag and filter will fix this and will allow for greater flexibility in a site's structure.
+However, for readers making a "Project Pages site," the Liquid tag and Liquid filter will be crucial to keeping all your relative links within your code working. In fact, if you've been building a "Project Pages site" by following this guide and try to go to the url for the blog post this guide just directed you to create, you will immediately notice that the blog post isn't styled at all, because the browser doesn't have the proper path to the relevant .css file. Additionally, none of the menu links have worked properly up to this point. The Liquid tag and Liquid filter will fix this and will allow for greater flexibility in a site's structure.
 
-### \_layout/page.html revisited
-The `page.html` file will need to have its content adjusted to account for any website structure that isn't exactly what is generated for a "User Pages site." Please replace the file's content with this:
+### \_layout/page.html revisited: Liquid tags and Liquid filters
+The `page.html` file will need to have its content adjusted to account for any website structure that isn't exactly what is generated for a "User Pages site." To account for the more complex structure, please replace the file's content with this:
 
 ```html
 <!DOCTYPE html>
@@ -276,13 +285,13 @@ The `page.html` file will need to have its content adjusted to account for any w
 	</body>
 </html>
 ```
-Notice the use of `{{ "" | relative_url }}` for both the path for the stylesheet as well as the link for "Blog" in the site's menu. Also notice that "Home" has a path of `{{site.baseurl}}`.
+Notice that "Home" has a path of `{{site.baseurl}}`; this is a Liquid tag. Also notice the use of `{{ "" | relative_url }}` for both the path for the stylesheet as well as the link for "Blog" in the site's menu; this is a Liquid filter.
 
 For `{{site.baseurl}}`, this Liquid tag is telling Jekyll to provide the website's known address, which is either its defaulted value, or a value produced by entries in the website's `_config.yml` file. In the case of the default, GitHub Pages sets `site` to `https://[username].github.io` and `baseurl` to `[repository-name]`. Both `site` and `baseurl` can be overwritten in `_config.yml`, such as `site: https://example.com` and `basurl: new-value`. In such an example, using `{{ site.baseurl }}` would produce the value `https://example.com/new-value`. This is useful for those looking to set a custom domain name for the site hosted on GitHub.
 
 For `{{ "" | relative_url }}`, Jekyll will recognize this Liquid filter and prepend the value between the quotation marks with the defined `baseurl` value. For example, in the new code provided for page.html above, Jekyll will define the path for the stylesheet as `[repository-name]/css/style.css`, which will lead to the appropriate location for that file because the layout serves itself from the location `site`.
 
-As an aside, I have used both the Liquid tag and filter here to introduce both, but it would also be possible to rewrite each instance of their use to rely on the other, in this specific case. For instance, the "Home" path could be rewritten as `{{ "." | relative_url }}` or `{{ "/" | relative_url }}`, which would all produce the same functional result.
+As an aside, I have used both the Liquid tag and Liquid filter here to introduce both, but it would also be possible to rewrite each instance of their use to rely on one another, in this specific case. For instance, the "Home" path could be rewritten its present `{{site.baseurl}}` Liquid tag as `{{ "." | relative_url }}` or `{{ "/" | relative_url }}`, which are Liquid filters and would all produce the same functional result.
 
 ### blog/index.html
 Using the knowledge above about where Jekyll positions files in folder that begin with `_`, it becomes possible to adjust code from McGlone's tutorial to work on a "Project Pages site". Create a new file, `blog/index.html` and paste this code into the file:
@@ -300,7 +309,7 @@ title: [EXCELLENT MAIN BLOG NAME]
 ```
 This code creates a new variable `post` and tells Jekyll that every entry inside the `posts` folder at the `site` location is a `post` value. This will serve up any file found inside `_posts` and create a list out of them. Then, it produces a list of links, which have all of their values defined by the file names and Front Matter. Using `{{ site.baseurl }}` will amend the post's path with the appropriate URL, so that this code will work in cases other than the most basic "User Pages sites" instances.
 
-Creating this file as `index.html` inside of the directory `blog` creates a cleaner-looking URL for its page (as opposed to, say, `https://[username].github.io/[repository-name]/blog.html`), which also segues nicely into an explanation of how to redefine the directory that each post appears to exist within in their URL.
+Creating this file as `index.html` inside of the directory `blog` creates a cleaner-looking URL for its page (`https://[username].github.io/[repository-name]/blog/` as opposed to, say, `https://[username].github.io/[repository-name]/blog.html`), which also segues nicely into an explanation of how to redefine the directory that each post appears to exist within in their URL.
 
 ## Customize Blog Post URLs
 Jekyll also allows a user to define a directory in which posts appear to reside when looking at their URL. This is done via the `permalink` variable in the repository's `_config.yml` file. Edit this file, and add this line:
@@ -342,7 +351,7 @@ layout: default
 By pointing this layout to the "default" layout, Jekyll will implement the GitHub Pages theme's "default" layout site-wide. Additionally, much of the previous code is unnecesary, so I have removed it. I have also commented out the stylesheet, because its current code would override the styling done by the theme. 
 
 ### css/style.css revisited
-If you would like to continue using the stylesheet to style each page's `<nav>` and `<footer>` containers, you could simply remove the surrounding comment in this file, then alter `css/style.css` to have only code related to `nav ul`, `footer ul`, `nav ul li`, and `footer ul li`. To do this quickly, just replace all of that file with:
+If you would like to continue using the stylesheet to style each page's `<nav>` and `<footer>` containers, you could simply remove the surrounding comment in the code above, then alter `css/style.css` to have only code related to `nav ul`, `footer ul`, `nav ul li`, and `footer ul li`. To do this quickly, just replace all of that file with:
 ```css
 nav ul, footer ul {
     padding: 0px;
