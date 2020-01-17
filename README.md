@@ -1,14 +1,18 @@
 # jekyll-tutorial
-This repository is for a Jekyll tutorial in CHI at MSU. This guide relies extensively on work done by Jonathan McGlone in his own guide, [Creating and Hosting a Personal Site on GitHub](http://jmcglone.com/guides/github-pages/), including the much of the example .css and .html code he provides.
+This repository is for a Jekyll tutorial in CHI at MSU. This guide relies extensively on work done by Jonathan McGlone in his own guide, [Creating and Hosting a Personal Site on GitHub](http://jmcglone.com/guides/github-pages/), including much of the example .css and .html code he provides.
 
 This tutorial assumes the the user has a basic understanding of GitHub's online user interface.
 
+## Tutorial Table of Contents
+[Creating and naming the repository](#creating-and-naming-the-repository)
+* [URL conventions, branch options, and GitHub Pages](#)
+
 ## Creating and naming the repository
 
-### Naming convention and GitHub Pages
-GitHub provides a static website hosting service, called GitHub Pages, which is potentially available for every repository a user might create on their website. The website will draw from one of the repo's branches, but the options available to choose from for the available branches is determined by the type of repo that has been created. 
+### URL conventions, branch options, and GitHub Pages
+GitHub provides a static website hosting service, called GitHub Pages, which is potentially available for every repository a user might create on the platform. The website will draw from one of the repo's branches, but the options available to choose from for the available branches is determined by the type of repo that has been created. 
 
-For any individual account repository that follows the naming convention \[username].github.io, GitHub will generate a website at https://\[username].github.io. This type of site is called a "User Pages site," the website will generate automatically, and it will (at the moment) only allow a user to make the "master" branch the collection of files used to generate the website.
+For any individual account repository that follows the naming convention \[username].github.io, GitHub will generate a website at https://\[username].github.io. This type of site is called a "User Pages site," the website will generate automatically, and it will (at the moment) only generate from the "master" branch of the repo.
 
 An organizational account repository that follows the convention \[organization].github.io will similarly automatically generate a website at https://\[organization].github.io and only allow reliance on the "master" branch. This type of site is called an "Organization Pages site."
 
