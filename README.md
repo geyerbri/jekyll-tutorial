@@ -3,6 +3,7 @@ This repository is for a Jekyll tutorial in CHI at MSU. This guide relies extens
 
 This tutorial assumes the the user has a basic understanding of GitHub's online user interface.
 
+<div style:"border-style: solid;">
 ## Tutorial Table of Contents
 [Creating and naming the repository](#creating-and-naming-the-repository)
 * [URL conventions, branch options, and GitHub Pages](#url-conventions-branch-options-and-github-pages)
@@ -36,7 +37,7 @@ This tutorial assumes the the user has a basic understanding of GitHub's online 
 
 [GitHub user-created themes](#github-user-created-themes)
 * [Remote-theme variable](#remote-theme-variable)
-
+</div>
 
 
 ## Creating and naming the repository
