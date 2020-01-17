@@ -169,7 +169,7 @@ name: [WEBSITE NAME]
 markdown: kramdown
 ```
 
-I'll be honest, I do not fully understand why the specific type of markdown - known as kramdown - needs to be specified here, but this is something McGlone includes [in his guide](http://jmcglone.com/guides/github-pages/), so I am including it in mine. kramdown is an MIT-designed version of markdown that GitHub Pages accepts, but their kowledge base explains that [GitHub's markdown is supported by kramdown](https://help.github.com/articles/updating-your-markdown-processor-to-kramdown/), so it is entirely possible that including this designation here is circular. ¯\_(ツ)_/¯
+I'll be honest, I do not fully understand why the specific type of markdown - known as kramdown - needs to be specified here, but this is something McGlone includes [in his guide](http://jmcglone.com/guides/github-pages/), so I am including it in mine. kramdown is an MIT-designed version of markdown that GitHub Pages accepts, but their kowledge base explains that [GitHub's markdown is supported by kramdown](https://help.github.com/articles/updating-your-markdown-processor-to-kramdown/), so it is entirely possible that including this designation here is circular. ¯\\_(ツ)_/¯
 
 ### \_layouts/page.html
 As I previously wrote, Jekyll allows a user to create centralized layouts for each type of page within a website. Many tutorials direct readers to create an initial layout named `default.html`, but such a named layout is likely to interfere with some theme chosen in the future, so instead I am directing my readers to use a different initial layout name.
