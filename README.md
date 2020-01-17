@@ -32,7 +32,7 @@ This tutorial assumes the the user has a basic understanding of GitHub's online 
 
 [Themes](#themes)
 * [\_layouts/page.html revisited again](#_layoutpagehtml-revisited-again)
-* [css/style.css revisited]
+* [css/style.css revisited](#cssstylecss-revisited)
 
 [GitHub user-created themes](#github-user-created-themes)
 * [Remote-theme variable](#remote-theme-variable)
