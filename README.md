@@ -18,7 +18,7 @@ This tutorial assumes the the user has a basic understanding of GitHub's online 
 * [index.html again](#indexhtml-again)
 [Creating a blog.html page](#creating-a-bloghtml-page)
 * [\_layout/post.html](#_layoutposthtml)
-* [\_posts/\[DATE\]-\[ANYTHING\].md](#_postdate-anythingmd)
+* [\_posts/\[DATE\]-\[ANYTHING\].md](#_postsdate-anythingmd)
 
 
 
