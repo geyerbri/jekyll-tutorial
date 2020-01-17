@@ -13,7 +13,7 @@ This tutorial assumes the the user has a basic understanding of GitHub's online 
 * [style.css](#style.css)
 [Getting started with a GitHub-based Jekyll website](#getting-started-with-a-github-based-jekyll-website)
 * [.gitignore](#gitignore)
-* [\_config.yml](#_config.yml)
+* [\_config.yml](#_configyml)
 
 ## Creating and naming the repository
 
