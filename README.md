@@ -223,9 +223,9 @@ title: [PAGE TITLE]
 </div><!-- /.blurb -->
 ```
 
-In this code, the portion between the two `---` lines is [referred to as the "Front Matter"](https://jekyllrb.com/docs/frontmatter/) and is where a user can specify all sorts of variables and values. Each page should have a at least a defined layout, and often will includ a defined title as well (as this one does), but can contain any number of other variables that relate to one's designed Jekyll layout or chosen theme (see below).
+In this code, the portion between the two `---` lines is [referred to as the "Front Matter"](https://jekyllrb.com/docs/frontmatter/) and is where a user can specify all sorts of variables and values. Each page should have a at least a defined layout, and often will include a defined title as well (as this one does), but can contain any number of other variables that relate to one's designed Jekyll layout or chosen theme (see below).
 
-The portion of the code below the Front Matter is the previously-referenced content. It should be exactly the same as what was written before as the `<div class="blurb">` container.
+The portion of the code below the Front Matter is the previously-referenced content. It should be exactly the same as what was written before, only now inside a `<div class="blurb">` container.
 
 ## Creating a blog.html page
 
