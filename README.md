@@ -35,7 +35,7 @@ This tutorial assumes the the user has a basic understanding of GitHub's online 
 * [css/style.css revisited](#cssstylecss-revisited)
 
 [GitHub user-created themes](#github-user-created-themes)
-* [Remote-theme variable](#remote-theme-variable)
+* [Remote_theme variable](#remote_theme-variable)
 
 ## Creating and naming the repository
 
@@ -380,7 +380,7 @@ nav ul li, footer ul li {
 ## GitHub user-created themes
 Many people find the easily-deployable themes provided by GitHub Pages to be undesirable. There are countless other themes available for use on GitHub, produced by other users. To utilize one of these themes, first locate one on github.com and take note of the user's name (\[theme-username]) and repository name (\[theme-repository]).
 
-### Remote-theme variable
+### Remote_theme variable
 Edit your repository's `_config.yml` file and delete any theme variable and its defined value that might exist there. Next, add
 ```
 remote_theme:
