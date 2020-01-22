@@ -246,7 +246,9 @@ layout: page
 ```
 
 ### \_posts/\[DATE]-\[ANYTHING].md
-Now that the "post" layout exists, it is possible to create a post that relies on the layout for its styling. Each post file must be named as \[YEAR]-\[MONTH]-\[DAY]-\[ANYTHING].md, with \[ANYTHING] being a string of words separated by dashes (`-`). For an example, you could use `2020-01-24-introductory-post.md`. Then for its content, paste in the following:
+Now that the "post" layout exists, it is possible to create a post that relies on the layout for its styling. Each post file must be named as \[YEAR]-\[MONTH]-\[DAY]-\[ANYTHING].md, with \[ANYTHING] being a string of words separated by dashes (`-`). 
+
+First, when creating a new file, type in the new directory name `_posts` and then give an appropriately-formatted post file name. For an example, you could use `2020-01-24-introductory-post.md`. Finally, for its content, paste in the following:
 ```kramdown
 ---
 layout: post
