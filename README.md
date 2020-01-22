@@ -150,7 +150,7 @@ For now, this css file will style the index.html page. This will be enough to vi
 
 
 ## Getting started with a GitHub-based Jekyll website
-Jekyll is a headless content management system - or headless CMS - that allows a user to quickly style new pages and blog posts using Jekyll's centralized layout and theme definitions. Jekyll is especially useful for people who want to write blog posts using Markdown, because it can not only automatically style Markdown (.md) files according to the defined layout and theme, but will also allow users to create a blog main page that will automatically generate a list of posts, using a comparatively light amount of programming.
+Jekyll is a headless content management system - or headless CMS - that allows a user to quickly style new pages and blog posts using Jekyll's centralized layout and theme definitions. Jekyll is especially useful for people who want to write blog posts using Markdown, because it will not only automatically style Markdown (.md) files according to the defined layout and theme, but will also allow users to create a blog main page that will automatically generate a list of posts, using a comparatively light amount of programming.
 
 Deploying Jekyll on GitHub requires creating a number of crucial files that serve to keep GitHub from tracking the wrong parts of the website, that connect one's website with the desired theme, and connects different pages and posts with the appropriate layouts and chosen theme. I will begin with explaining the basics of Jekyll, its required files, and how to use layouts, before I get into picking a GitHub-provided theme or explaining how to use themes created by other GitHub users. (or yourself!)
 
