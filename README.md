@@ -362,7 +362,7 @@ layout: default
 
 And again, replace both instances of \[username] with your own GitHub username.
 
-By pointing this layout to the "default" layout, Jekyll will implement the GitHub Pages theme's "default" layout site-wide. Additionally, because this layout now relies on the code in the supplied theme, much of the code previously written here is unnecesary, so I have removed it. I have also commented out the stylesheet, because its current code would override the styling done by the theme (but didn't remove it entirely to keep it as an example for what _can_ be included). 
+By pointing this layout to the "default" layout, Jekyll will implement the GitHub Pages theme's "default" layout site-wide. Additionally, because this layout now relies on the code in the supplied theme, much of the code previously written here is unnecesary, so I have removed it. I have also commented out the stylesheet, because its current code would override the styling done by the theme (but didn't remove it entirely to keep it for use in the next section). 
 
 ### css/style.css revisited
 If you would like to continue using the stylesheet to style each page's `<nav>` and `<footer>` containers, you could simply remove the surrounding comment in the code above, then alter `css/style.css` to have only code related to `nav ul`, `footer ul`, `nav ul li`, and `footer ul li`. To do this quickly, just replace all of that file with:
