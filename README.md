@@ -21,7 +21,7 @@ This tutorial assumes the the user has a basic understanding of GitHub's online 
 * [index.html again](#indexhtml-again)
 
 [Creating a blog.html page](#creating-a-bloghtml-page)
-* [\_layout/post.html](#_layoutposthtml)
+* [\_layouts/post.html](#_layoutsposthtml)
 * [\_posts/\[DATE\]-\[ANYTHING\].md](#_postsdate-anythingmd)
 
 ["Project Pages site," Liquid tag {{ site.baseurl }}, and Liquid filter {{ "" | relative_url }}](#project-pages-site-the-liquid-tag--sitebaseurl--and-the-liquid-filter----relative_url-)
@@ -231,8 +231,8 @@ The portion of the code below the Front Matter is the previously-referenced cont
 
 As I wrote above, Jekyll is used quite extensively as a blog generator because of its ability to centralize webpage layouts and automatically generate lists of certain kinds of files as pages, as well as its ability to turn Markdown (.md) files into styled pages. It does this all for a static site.
 
-### \_layout/post.html
-The first step here is to create a "post" layout, which relies on the "page" layout. Create a new file in the `_layout` directory, name it `post.html`, and paste in the following code:
+### \_layouts/post.html
+The first step here is to create a "post" layout, which relies on the "page" layout. Create a new file in the `_layouts` directory, name it `post.html`, and paste in the following code:
 ```html
 ---
 layout: page
