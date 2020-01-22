@@ -8,7 +8,7 @@ This tutorial assumes the the user has a basic understanding of GitHub's online 
 * [URL conventions, branch options, and GitHub Pages](#url-conventions-branch-options-and-github-pages)
 * [Repository creation options](#repository-creation-options)
 
-[Managing branches](#managing-branches)
+[Managing branches and generating the website](#managing-branches-and-generating-the-website)
 
 [Website Front Page](#website-front-page)
 * [index.html](#indexhtml)
@@ -55,7 +55,7 @@ More information about these conventions can be found on [GitHub's knowledge bas
 ### Repository creation options
 After providing the desired repository name, there are several more options related to repo creation, including an optional description field, a README.md initialization option (which I recommend; every repo should have an explanatory repo, IMO), a .gitignore initialization option, and a copyleft public license generation option. When building a Jekyll site, it would be easier to simply choose "Jekyll" from the list of .gitignore options, but I will still explain the process of manually creating one below. Finally, some users may have either an educational GitHub account or are paying for additional options, in which case they might have the choice between making the repo public or private. These are self-explanatory, but for the purposes of this guide, I will assume users have made their repo public.
 
-## Managing branches
+## Managing branches and generating the website
 Many people find using multiple branches for a repository particularly helpful, especially with keeping unintentional material from being public on one's website. But, for those of us who are building a Jekyll site that may not get much traffic, it would probably be easier to maintain just one repo branch - the "master" branch - and have that one selected as the source for the repo's GitHub Pages website. To generate a website on a project repo, simply navigate to the repo's Settings tab, scroll down to the GitHub Pages section, choose the "master branch" source for the website, and click "Save." Here you can see that "gh-pages" would be another acceptable source - if such a branch exists in the repo - as well as a folder within the "master" branch called "docs." If one would prefer to maintain two branches in the repo, then creating a "gh-pages" branch will automatically generate the website because GitHub's system automatically recognizes this specific branch name as the source of a desired website. A user can, at any time after creating the "gh-pages" branch, change the source setting to either "master" or "docs" inside of "master."
  
 ## Website Front Page
