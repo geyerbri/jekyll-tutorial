@@ -305,7 +305,7 @@ For `{{ "" | relative_url }}`, Jekyll will recognize this Liquid filter and prep
 As an aside, I have used both the Liquid tag and Liquid filter here to introduce both, but it would also be possible to rewrite each instance of their use to rely on one another, in this specific case. For instance, the "Home" path could be rewritten its present `{{site.baseurl}}` Liquid tag as `{{ "." | relative_url }}` or `{{ "/" | relative_url }}`, which are Liquid filters and would all produce the same functional result.
 
 ### blog/index.html
-Using the knowledge above about where Jekyll positions files in folder that begin with `_`, it becomes possible to adjust code from McGlone's tutorial to work on a "Project Pages site". Create a new file, inside a new `blog` directory, name the file `index.html`, and paste this code into the file:
+Using the knowledge above about where Jekyll positions files in folders that begin with `_`, it becomes possible to adjust code from McGlone's tutorial to work on a "Project Pages site". Create a new file, inside a new `blog` directory (notice the lack of a `_`), name the file `index.html`, and paste this code into the file:
 ```html
 ---
 layout: page
