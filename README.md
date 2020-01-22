@@ -165,7 +165,7 @@ This tells GitHub's system to ignore any changes that happen in the `_site/` dir
 Next, create a new file named `_config.yml` and in its body add the following:
 
 ```
-name: [WEBSITE NAME]
+title: [WEBSITE NAME]
 markdown: kramdown
 ```
 
@@ -180,7 +180,7 @@ Create another new file in the repository and write its name as `_layouts/page.h
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>{{ page.title }}</title>
+		<title>{{ page.title }} | {{ site.title }}</title>
 		<!-- link to main stylesheet -->
 		<link rel="stylesheet" type="text/css" href="/css/style.css">
 	</head>
@@ -269,7 +269,7 @@ The `page.html` file inside of the `_layouts` directory will need to have its co
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>{{ page.title }}</title>
+		<title>{{ page.title }} | {{ site.title }}</title>
 		<!-- link to main stylesheet -->
 		<link rel="stylesheet" type="text/css" href={{ "css/style.css" | relative_url }}>
 	</head>
