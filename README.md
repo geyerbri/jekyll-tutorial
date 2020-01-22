@@ -74,20 +74,20 @@ Create a file named `index.html` and paste the following code into its body:
 	</head>
 	<body>
 		<nav>
-    		<ul>
-        		<li><a href="/">Home</a></li>
-        		<li><a href="/blog">Blog</a></li>
-    		</ul>
+	    		<ul>
+        			<li><a href="/">Home</a></li>
+        			<li><a href="/blog">Blog</a></li>
+    			</ul>
 		</nav>
 		<div class="container">
-    		<div class="blurb">
-        		<h1>Hi there, I'm SOMEONE!</h1>
+    			<div class="blurb">
+        			<h1>Hi there, I'm SOMEONE!</h1>
 				<p>Here is some example text. Here is <a href="/about">an example hyperlink</a> to another part of this same website</p>
-    		</div><!-- /.blurb -->
+    			</div><!-- /.blurb -->
 		</div><!-- /.container -->
 		<footer>
-    		<ul>
-        		<li><a href="https://github.com/[username]">github.com/[username]</a></li>
+    			<ul>
+        			<li><a href="https://github.com/[username]">github.com/[username]</a></li>
 			</ul>
 		</footer>
 	</body>
@@ -136,12 +136,10 @@ footer {
     border-top: 1px solid #d5d5d5;
     font-size: .8em;
 }
-
 ul.posts { 
     margin: 20px auto 40px; 
     font-size: 1.5em;
 }
-
 ul.posts li {
     list-style: none;
 }
@@ -180,31 +178,31 @@ Create another new file in the repository and write its name as `_layouts/page.h
 
 ```html
 <!DOCTYPE html>
-	<html>
-		<head>
-			<title>{{ page.title }}</title>
-			<!-- link to main stylesheet -->
-			<link rel="stylesheet" type="text/css" href="/css/style.css">
-		</head>
-		<body>
-			<nav>
+<html>
+	<head>
+		<title>{{ page.title }}</title>
+		<!-- link to main stylesheet -->
+		<link rel="stylesheet" type="text/css" href="/css/style.css">
+	</head>
+	<body>
+		<nav>
 	    		<ul>
 	        		<li><a href="/">Home</a></li>
 	        		<li><a href="/blog">Blog</a></li>
 	    		</ul>
-			</nav>
-			<div class="container">
+		</nav>
+		<div class="container">
 			
 			{{ content }}
 			
-			</div><!-- /.container -->
-			<footer>
+		</div><!-- /.container -->
+		<footer>
 	    		<ul>
 	        		<li><a href="https://github.com/[username]">github.com/[username]</a></li>
-				</ul>
-			</footer>
-		</body>
-	</html>
+			</ul>
+		</footer>
+	</body>
+</html>
   ```
 
 If you notice, much of this is the same as what was pasted into the index.html file, specified above. Once again, replace both instances of \[username] with your own GitHub username, but leave the rest alone for now. This layout will take care of the bulk of the HTML needed to write any given page in the website, so that all is needed in a page that refrences this layout is a little bit of content (which Jekyll will recognize and plug into a generated page at the location occupied by the `{{ content }}` [Liquid tag](https://jekyllrb.com/docs/templates/) in this defined layout).
@@ -225,7 +223,7 @@ title: [PAGE TITLE]
 
 In this code, the portion between the two `---` lines is [referred to as the "Front Matter"](https://jekyllrb.com/docs/frontmatter/) and is where a user can specify all sorts of variables and values. Each page should have a at least a defined layout, and often will include a defined title as well (as this one does), but can contain any number of other variables that relate to one's designed Jekyll layout or chosen theme (see below).
 
-The portion of the code below the Front Matter is the previously-referenced content. It should be exactly the same as what was written before, only now inside a `<div class="blurb">` container.
+The portion of the code below the Front Matter is the previously-referenced content. It should be exactly the same as what was before written inside of the `<div class="container">` container.
 
 ## Creating a blog.html page
 
@@ -277,24 +275,27 @@ The `page.html` file inside of the `_layouts` directory will need to have its co
 	</head>
 	<body>
 		<nav>
-    		<ul>
-        		<li><a href="{{site.baseurl}}">Home</a></li>
-        		<li><a href={{ "blog" | relative_url }}>Blog</a></li>
-    		</ul>
+    			<ul>
+        			<li><a href="{{site.baseurl}}">Home</a></li>
+        			<li><a href={{ "blog" | relative_url }}>Blog</a></li>
+    			</ul>
 		</nav>
 		<div class="container">
 		
-		{{ content }}
+			{{ content }}
 		
 		</div><!-- /.container -->
 		<footer>
-    		<ul>
-        		<li><a href="https://github.com/[username]">github.com/[username]</a></li>
+	    		<ul>
+        			<li><a href="https://github.com/[username]">github.com/[username]</a></li>
 			</ul>
 		</footer>
 	</body>
 </html>
 ```
+
+Once more, replace both instances of \[username] with your own GitHub username.
+
 Notice that "Home" has a path of `{{site.baseurl}}`; this is a Liquid tag. Also notice the use of `{{ "" | relative_url }}` for both the path for the stylesheet as well as the link for "Blog" in the site's menu; this is a Liquid filter.
 
 For `{{site.baseurl}}`, this Liquid tag is telling Jekyll to provide the website's known address, which is either its defaulted value, or a value produced by entries in the website's `_config.yml` file. In the case of the default, GitHub Pages sets `site` to `https://[username].github.io` and `baseurl` to `[repository-name]`. Both `site` and `baseurl` can be overwritten in `_config.yml`, such as `site: https://example.com` and `basurl: new-value`. In such an example, using `{{ site.baseurl }}` would produce the value `https://example.com/new-value`. This is useful for those looking to set a custom domain name for the site hosted on GitHub.
@@ -358,6 +359,9 @@ layout: default
 	</ul>
 </footer>
 ```
+
+And again, replace both instances of \[username] with your own GitHub username.
+
 By pointing this layout to the "default" layout, Jekyll will implement the GitHub Pages theme's "default" layout site-wide. Additionally, much of the previous code is unnecesary, so I have removed it. I have also commented out the stylesheet, because its current code would override the styling done by the theme. 
 
 ### css/style.css revisited
