@@ -39,6 +39,8 @@ This tutorial assumes the the user has a basic understanding of GitHub's online 
 
 ## Creating and naming the repository
 
+Start by creating a new repository.
+
 ### URL conventions, branch options, and GitHub Pages
 GitHub provides a static website hosting service, called GitHub Pages, which is potentially available for every repository a user might create on the platform. The website will draw from one of the repo's branches, but the options available to choose from for the available branches is determined by the type of repo that has been created. 
 
