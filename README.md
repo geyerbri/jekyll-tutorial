@@ -76,7 +76,7 @@ Create a file named `index.html` and paste the following code into its body:
 		<nav>
 	    		<ul>
         			<li><a href="/">Home</a></li>
-        			<li><a href="/blog">Blog</a></li>
+        			<li><a href="/blog/">Blog</a></li>
     			</ul>
 		</nav>
 		<div class="container">
@@ -188,7 +188,7 @@ Create another new file in the repository and write its name as `_layouts/page.h
 		<nav>
 	    		<ul>
 	        		<li><a href="/">Home</a></li>
-	        		<li><a href="/blog">Blog</a></li>
+	        		<li><a href="/blog/">Blog</a></li>
 	    		</ul>
 		</nav>
 		<div class="container">
