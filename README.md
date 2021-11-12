@@ -1,7 +1,7 @@
 # jekyll-tutorial
 This repository is for a Jekyll tutorial in CHI at MSU. This guide relies extensively on work done by Jonathan McGlone in his own guide, [Creating and Hosting a Personal Site on GitHub](http://jmcglone.com/guides/github-pages/), including much of the example .css and .html code he provides.
 
-This tutorial assumes the the user has a basic understanding of GitHub's online user interface.
+This tutorial assumes the the user has a basic understanding of GitHub's online user interface. Hello.
 
 ## Tutorial Table of Contents
 [Creating and naming the repository](#creating-and-naming-the-repository)
